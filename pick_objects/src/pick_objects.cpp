@@ -4,8 +4,11 @@
 #include <vector>
 using namespace std;
 
-vector<vector<double>> LOCATIONS = {{2.5, -4.5, 1.57}, // x, y, w coordinates of target locations
-                                    {-2.0, -5.0, 0  }}; 
+// vector<vector<double>> LOCATIONS = {{2.5, -4.5, 1.57}, // x, y, w coordinates of target locations
+//                                     {-2.0, -5.0, 0  }}; 
+int const num_locations = 2;
+float const LOCATIONS[num_locations][3] = {{2.8, -7.3, 1.57},
+                                           {-2.0, -5.0, 0  }}; 
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
@@ -26,11 +29,11 @@ int main(int argc, char** argv)
   goal.target_pose.header.frame_id = "map";
   goal.target_pose.header.stamp    = ros::Time::now();
 
-  for(int i=0; i<LOCATIONS.size(); i++)
+  for(int i=0; i<num_locations; i++)
   {
-    goal.target_pose.pose.position.x = LOCATIONS[i][0];  
-    goal.target_pose.pose.position.y = LOCATIONS[i][1];  
-    goal.target_pose.pose.position.w = LOCATIONS[i][2];  
+    goal.target_pose.pose.position.x    = LOCATIONS[i][0];  
+    goal.target_pose.pose.position.y    = LOCATIONS[i][1];  
+    goal.target_pose.pose.orientation.w = LOCATIONS[i][2];  
 
     cout << "sending coordinates of location " << i << " ..." << endl;
     ac.sendGoal(goal);
@@ -40,7 +43,7 @@ int main(int argc, char** argv)
     if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
       cout << "--> SUCCESS: reached target location" << endl;
     else
-      cout << "--> FAILURE: robot failed to reach goal" << endl;a
+      cout << "--> FAILURE: robot failed to reach goal" << endl;
 
     sleep(5); 
   }
