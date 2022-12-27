@@ -27,10 +27,12 @@ cd ~/catkin_ws/src
 mkdir map
 mkdir scripts
 mkdir rvizConfig
-mkdir pick_objects
-mkdir add_markers
 mkdir world
+#mkdir pick_objects
+#mkdir add_markers
 cp robotics-ud-ros-mapping/my_robot/worlds/enso_condo_building_simplified_bots.world world
-cd robotics-ud-ros-navigation
+cp robotics-ud-ros-navigation/map/enso.* map
+cp robotics-ud-ros-navigation/scripts/*.sh scripts
+#cd robotics-ud-ros-navigation
 git config --global user.name kamccall
 git config --global user.email kevin@kevinmccall.net
