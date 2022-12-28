@@ -34,15 +34,15 @@ int main(int argc, char** argv)
     goal.target_pose.pose.position.y    = LOCATIONS[i][1];  
     goal.target_pose.pose.orientation.w = LOCATIONS[i][2];  
 
-    cout << "sending coordinates of location " << i << ": " << LOCATIONS[i][0] << " " << LOCATIONS[i][1] << " " << LOCATIONS[i][2] << endl;
+    cout << "sending coordinates of location " << i << ": " << LOCATIONS[i][0] << " " << LOCATIONS[i][1] << " " << LOCATIONS[i][2];
+    
     ac.sendGoal(goal);
-
     ac.waitForResult();
 
     if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-      cout << "--> SUCCESS: reached target location" << endl;
+      cout << " --> SUCCESS: reached target location" << endl;
     else
-      cout << "--> FAILURE: robot failed to reach goal" << endl;
+      cout << " --> FAILURE: robot failed to reach goal" << endl;
 
     sleep(5); 
   }
