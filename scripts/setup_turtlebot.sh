@@ -11,10 +11,7 @@ git clone https://github.com/ros-perception/slam_gmapping
 git clone https://github.com/turtlebot/turtlebot
 git clone https://github.com/turtlebot/turtlebot_interactions
 git clone https://github.com/turtlebot/turtlebot_simulator
-git clone https://github.com/kamccall/robotics-ud-ros-mapping
 git clone https://github.com/kamccall/robotics-ud-ros-navigation
-#cd robotics-ud-ros-mapping
-#git clone https://github.com/ros-teleop/teleop_twist_keyboard
 cd ~/catkin_ws/
 source devel/setup.bash
 rosdep -i install gmapping
@@ -28,11 +25,17 @@ mkdir map
 mkdir scripts
 mkdir rvizConfig
 mkdir world
-#mkdir pick_objects
-#mkdir add_markers
-cp robotics-ud-ros-mapping/my_robot/worlds/enso_condo_building_simplified_bots.world world
+mkdir pick_objects
+cp -r robotics-ud-ros-navigation/pick_objects/* pick_objects
+cp robotics-ud-ros-navigation/world/enso_condo_building_simplified_bots.world world
 cp robotics-ud-ros-navigation/map/enso.* map
 cp robotics-ud-ros-navigation/scripts/*.sh scripts
-#cd robotics-ud-ros-navigation
+cp -f robotics-ud-ros-navigation/launch/amcl_demo.launch turtlebot_simulator/turtlebot_gazebo/launch
+cd ~/catkin_ws
 git config --global user.name kamccall
 git config --global user.email kevin@kevinmccall.net
+#need to run these AFTER setting up env (so that catkin_make works)
+#cd ~/catkin_ws/src/robotics-ud-ros-navigation
+#rm -rf pick_objects
+#cd ~/catkin_ws
+#catkin_make

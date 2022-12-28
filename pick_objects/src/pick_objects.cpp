@@ -1,13 +1,10 @@
 #include <ros/ros.h>
 #include <move_base_msgs/MoveBaseAction.h>
 #include <actionlib/client/simple_action_client.h>
-#include <vector>
 using namespace std;
 
-// vector<vector<double>> LOCATIONS = {{2.5, -4.5, 1.57}, // x, y, w coordinates of target locations
-//                                     {-2.0, -5.0, 0  }}; 
 int const num_locations = 2;
-float const LOCATIONS[num_locations][3] = {{2.8, -7.3, 1.57},
+float const LOCATIONS[num_locations][3] = {{-3.5, -8.3, 1.57},  // starting at -0.5, -8.3 in map
                                            {-2.0, -5.0, 0  }}; 
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
@@ -35,7 +32,7 @@ int main(int argc, char** argv)
     goal.target_pose.pose.position.y    = LOCATIONS[i][1];  
     goal.target_pose.pose.orientation.w = LOCATIONS[i][2];  
 
-    cout << "sending coordinates of location " << i << " ..." << endl;
+    cout << "sending coordinates of location " << i << ": " << LOCATIONS[i][0] << " " << LOCATIONS[i][1] << " " << LOCATIONS[i][2] << endl;
     ac.sendGoal(goal);
 
     ac.waitForResult();
@@ -50,4 +47,5 @@ int main(int argc, char** argv)
 
   return(0);
 }
+
 
