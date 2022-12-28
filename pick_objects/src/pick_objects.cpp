@@ -4,8 +4,8 @@
 using namespace std;
 
 int const num_locations = 2;
-float const LOCATIONS[num_locations][3] = {{-3.5, -8.3, 1.57},  // starting at -0.5, -8.3 in map
-                                           {-2.0, -5.0, 0  }}; 
+float const LOCATIONS[num_locations][3] = {{ -8.3, 4.5, 1.0 },  // starting at -0.5, -8.3 in map
+                                           { -5.0, 4.5, 1.0 }}; 
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
@@ -26,6 +26,8 @@ int main(int argc, char** argv)
   goal.target_pose.header.frame_id = "map";
   goal.target_pose.header.stamp    = ros::Time::now();
 
+  cout << "BEGINNING NAVIGATION...\n";
+
   for(int i=0; i<num_locations; i++)
   {
     goal.target_pose.pose.position.x    = LOCATIONS[i][0];  
@@ -45,6 +47,7 @@ int main(int argc, char** argv)
     sleep(5); 
   }
 
+  cout << "COMPLETED NAVIGATION...\n";
   return(0);
 }
 
