@@ -12,9 +12,9 @@ below is an image of the `turtlebot` running in that environment after executing
 INSERT 
 
 ## part 2: test localization and navigation
-this task focused on moving to multiple locations within the map, demonstrating the ability of the robot to reach the location(s) and orient itself inside the map. this uses the `AMCL` package, and simultaneously shows moving within my custom `gazebo` world as well as the custom map as displayed in `rviz`.  destination locations for robot are provided using the 2D navigation button within `rviz`.  the `test_navigation_turtlebot.sh` script launches all the services, which include the `turtlebot_world.launch`, `amcl_demo.launch` and `view_navigation.launch` files. 
+this task focused on moving to multiple locations within the map, demonstrating the ability of the robot to reach the location(s) and orient itself inside the map. this uses the `AMCL` package, and simultaneously shows moving within my custom `gazebo` world as well as the custom map as displayed in `rviz`.  destination locations for robot are provided manually using the 2D navigation button within `rviz`.  the `test_navigation_turtlebot.sh` script launches all the services, which include the `turtlebot_world.launch`, `amcl_demo.launch` and `view_navigation.launch` files. 
 
-below is an image of the `turtlebot` running in that environment after executing the `test_navigation_turtlebot.sh` script. 
+below is an image of the `turtlebot` running in that environment after executing the `test_navigation_turtlebot.sh` script and manually defining a target location using 2d navigation within `rviz`. 
 
 INSERT
 
