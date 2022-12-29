@@ -1,5 +1,5 @@
 # robotics-ud-ros-navigation
-udacity robotics project5 using slam to map and localize robot inside custom gazebo building
+udacity robotics project5 to define a home service robot that uses various packages such as `AMCL` and `gmapping`, visualized representations of a custom world in `gazebo` and its generated map in `rviz`, and custom `ROS` packages called `pick_objects` and `add_markers` in order to create an autonomou robot that navigates a condo environment in a manner similar to a roomba or similar home device. 
 
 ## part 0: setup files
 while i completed most of the deliverables in this project using the `turtlebot` included with `ROS`, i reproduced similar behaviors for most of the challenges using my own custom robot that was created in prior assignments.  since the packages and supporting code is very different, both `setup_myrobot.sh` and `setup_turtlebot.sh` scripts are included in the repo.  after doing both SLAM and navigation tests using my custom robot, all of the assignments were then done using the `turtlebot`, so the `setup_turtlebot.sh` was the script most often used. 
