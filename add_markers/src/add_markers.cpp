@@ -2,7 +2,7 @@
 #include <visualization_msgs/Marker.h>
 using namespace std;
 
-int const NUM_MARKERS = 2;
+int const NUM_MARKERS = 2;                                   // code can be adapted to arbitrary number of markers
 float const MARKERS[NUM_MARKERS][3] = {{ -8.3, 4.5, 1.0 },   // 0 index item pickup zone
                                        { -5.0, 4.5, 1.0 }};  // 1 index item dropoff zone
 
@@ -96,7 +96,6 @@ int main(int argc, char** argv)
   marker.pose.position.x = MARKERS[1][0];
   marker.pose.position.y = MARKERS[1][1];
   marker.pose.orientation.w = MARKERS[1][2];
-  marker.color.r = 0.0f;
   marker.color.g = 1.0f;  // dropoff location marker is green
   marker.color.b = 0.0f;
 
