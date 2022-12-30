@@ -21,12 +21,16 @@ INSERT
 ## part 3: auto-pilot navigation to waypoint(s) and desination
 this focused on defining a list of locations to which the robot would autonomously navigate, and then observing the robot's successful movement to each of them in turn.  this leveraged similar `turtlebot`, `AMCL` and `rviz` services, but also required creating a custom `ROS` node that used `MoveBaseClient` object and a `MoveBaseAction` message from the `move_base_msgs` library in order to define a target location and orientation for the robot and then observe the robot's autonomous movement.  this also requires a logical rotation in the coordinate systems of `gazebo` and the resulting map, given the (well documented) 90 degree offset between those environments.  this required the use of rotated `initial_pose_x`, `initial_pose_y`, and `initial_pose_a` arguments defined in the `amcl_demo.launch` file, and the appropriate translation in the `ROBOT_INITIAL_POSE` environment variable set in the shell script `pick_objects.sh`.  the `pick_objects.sh` script launches `turtlebot`, `AMCL` and `rviz` as usual, but also runs the custom `pick_objects` `ROS` node as well, using those aforementioned coordinates to localize the robot in the exact same location in the respective `gazebo` and `rviz` views. 
 
-below is several successive images of the robot navigating from the initial point to a (single) waypoint due west in the map, and then to the destination point due north.  
+below are several successive images of the robot navigating from the initial point to a (single) waypoint due west in the map, and then to the destination point due north.  
 
 INSERT
 
 ## part 4: displaying markers on environment map
+the final (independent) task was to put a geometric object on the `rviz` map to mark locations to show the robot's path.  i published a (cylindrical) marker in the map that represented the first waypoint (the 'pick up' zone, per the project instructions), displayed it for 5 seconds, then published another cylinder (in the color green, representing the 'drop off' zone) to be displayed for 5 seconds.  the second marker is then removed from the map, and the marker test concludes.  
 
+below are several successive images that show the markers appearing at first the pickup zone, then the drop off zone. 
+
+INSERT
 
 ## part 5: simulating autonomous home service robot
 
