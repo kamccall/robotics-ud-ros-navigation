@@ -48,11 +48,29 @@ void process_odom_data(const nav_msgs::Odometry::ConstPtr &msg)
 
 int main(int argc, char** argv)
 {
+  // set mode variable and process execution parameter
+  ROBOT_MODE  robot_mode;
+  ROBOT_STATE robot_state;
+  string      mode_param;
+
   ros::init(argc, argv, "add_markers");
-  ros::NodeHandle nh;
-  ros::Publisher marker_pub = nh.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+  ros::NodeHandle nh("~");
+  nh.getParam("param", mode_param);
+  ros::Publisher marker_pub = nh.advertise<visualization_msgs::Marker>("/visualization_marker", 1);
+
+  if(mode_param.compare("mark_from_odom") == 0)
+  {
+    robot_mode = MARK_FROM_ODOM;
+    cout << "ODOM MODE ENABLED...\n";
+  }
+  else
+  {
+    robot_mode = MARK_AUTO;
+    cout << "AUTO MODE ENABLED...\n";
+  }
 
   cout << "MARKERS INITIALIZED...\n";   // KM DEBUG
+  sleep(3);
 
   uint32_t shape = visualization_msgs::Marker::CYLINDER;
 
@@ -62,11 +80,10 @@ int main(int argc, char** argv)
   marker.ns   = "add_markers";
   marker.id   = 0;
   marker.type = shape; 
-  marker.lifetime = ros::Duration(); // KM do i need this?
   
-  marker.scale.x = .2;
-  marker.scale.y = .2;
-  marker.scale.z = .2;
+  marker.scale.x = .3;
+  marker.scale.y = .3;
+  marker.scale.z = .3;
 
   // set pickup marker location and attributes
   marker.pose.position.x = MARKERS[0][0];
@@ -80,9 +97,10 @@ int main(int argc, char** argv)
   marker.color.g = 0.0f;
   marker.color.b = 1.0f;  // pickup location marker is blue
   marker.color.a = 1.0;
+  marker.lifetime = ros::Duration(); // KM do i need this?
   
   // if(cmdparam.compare("mark_auto") == 0)
-  marker.action   = visualization_msgs::Marker::ADD;  // add blue marker at pickup zone
+  marker.action = visualization_msgs::Marker::ADD;  // add blue marker at pickup zone
   marker_pub.publish(marker);
   cout << "adding pickup zone marker...\n";
   sleep(5);  
@@ -110,7 +128,7 @@ int main(int argc, char** argv)
   sleep(5);
 
   cout << "MARKERS COMPLETE...\n";  // KM DEBUG
-  sleep(5);
+  sleep(3);
   return 0;
 }
 
