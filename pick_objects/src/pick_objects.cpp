@@ -3,8 +3,8 @@
 #include <actionlib/client/simple_action_client.h>
 using namespace std;
 
-int const num_locations = 2;
-float const LOCATIONS[num_locations][3] = {{ -8.3, 4.5, 1.0 },  // starting at -0.5, -8.3 in map
+int const NUM_LOCATIONS = 2;
+float const LOCATIONS[NUM_LOCATIONS][3] = {{ -8.3, 4.5, 1.0 },  // starting at -0.5, -8.3 in map
                                            { -5.0, 4.5, 1.0 }}; 
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
@@ -28,14 +28,14 @@ int main(int argc, char** argv)
 
   cout << "BEGINNING NAVIGATION...\n";
 
-  for(int i=0; i<num_locations; i++)
+  for(int i=0; i<NUM_LOCATIONS; i++)
   {
+    cout << "sending coordinates of location " << i << ": " << LOCATIONS[i][0] << " " << LOCATIONS[i][1] << flush;
+    
     goal.target_pose.pose.position.x    = LOCATIONS[i][0];  
     goal.target_pose.pose.position.y    = LOCATIONS[i][1];  
     goal.target_pose.pose.orientation.w = LOCATIONS[i][2];  
 
-    cout << "sending coordinates of location " << i << ": " << LOCATIONS[i][0] << " " << LOCATIONS[i][1] << " " << LOCATIONS[i][2];
-    
     ac.sendGoal(goal);
     ac.waitForResult();
 
@@ -48,6 +48,7 @@ int main(int argc, char** argv)
   }
 
   cout << "COMPLETED NAVIGATION...\n";
+  sleep(5);
   return(0);
 }
 
