@@ -9,7 +9,7 @@ this focused on launching the `turtlebot` included with `gazebo` inside the defa
 
 below is an image of the `turtlebot` running in that environment after executing the `test_slam_turtlebot.sh` script. 
 
-https://user-images.githubusercontent.com/19736497/210157423-c38c8d02-35b3-4d96-bbe9-bc287c67ed91.png![image](https://user-images.githubusercontent.com/19736497/210157603-5fd62db5-edd3-4daf-a5ff-1f24e2abb8d7.png)
+![image](https://user-images.githubusercontent.com/19736497/210157423-c38c8d02-35b3-4d96-bbe9-bc287c67ed91.png)![image](https://user-images.githubusercontent.com/19736497/210157605-cefbf39a-8c90-454b-9d43-fa680b3673e2.png)
 
 ## part 2: test localization and navigation
 this task focused on moving to multiple locations within the map, demonstrating the ability of the robot to reach the location(s) and orient itself inside the map. this uses the `AMCL` package, and simultaneously shows moving within my custom `gazebo` world as well as the custom map as displayed in `rviz`.  destination locations for robot are provided manually using the 2D navigation button within `rviz`.  the `test_navigation_turtlebot.sh` script launches all the services, which include the `turtlebot_world.launch`, `amcl_demo.launch` and `view_navigation.launch` files. 
