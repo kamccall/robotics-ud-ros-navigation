@@ -17,8 +17,11 @@ this task focused on moving to multiple locations within the map, demonstrating 
 below are images of the `turtlebot` running in that environment after executing the `test_navigation_enso_world.sh` script and manually defining successive target locations using 2d navigation within `rviz`. 
 
 ![image](https://user-images.githubusercontent.com/19736497/210157539-512741a2-8929-4fc5-9561-ebb7a7a692e4.png)![image](https://user-images.githubusercontent.com/19736497/210157635-d94168ae-7664-4078-acc1-e269b9f3a3c6.png)
+
 ![image](https://user-images.githubusercontent.com/19736497/210157566-1b95a6c5-cc8b-4e75-8b78-f000a335ed25.png)![image](https://user-images.githubusercontent.com/19736497/210157638-5be6dda4-616c-4f82-b543-b2479184adc2.png)
+
 ![image](https://user-images.githubusercontent.com/19736497/210157575-956f60a1-5eb1-4e67-ba6d-4bb5ac080806.png)![image](https://user-images.githubusercontent.com/19736497/210157645-7a43e338-8f2d-4744-b4dc-da6212c8ceff.png)
+
 ![image](https://user-images.githubusercontent.com/19736497/210157583-ecda317e-662c-45d7-82a7-1365c600406e.png)![image](https://user-images.githubusercontent.com/19736497/210157648-13533e40-4ddb-46b6-b9e6-bfbcbc5ee19c.png)
 
 ## part 3: auto-pilot navigation to waypoint(s) and destination
