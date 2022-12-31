@@ -80,14 +80,14 @@ void process_odom_data(const nav_msgs::Odometry::ConstPtr &msg)
       marker.color.b = 0.0f;
       marker.action = visualization_msgs::Marker::ADD;  // add green marker at dropoff zone
       marker_pub.publish(marker);
+      
       sleep(WAIT_TIME);  
       robot_state = E_DONE;
+      cout << "MARKERS COMPLETE...\n";
       break;
     }
     case E_DONE:
     {
-      cout << "MARKERS COMPLETE...\n"; 
-      // sleep(WAIT_TIME);
       ros::shutdown();
     }
   }
