@@ -47,4 +47,13 @@ below are several successive images that show the markers appearing at first the
 ![image](https://user-images.githubusercontent.com/19736497/210182986-d0613a74-6985-4942-9fe8-4077abc3ea28.png)
 
 ## part 5: simulating autonomous home service robot
+lots of important text here
+
+below are several successive images showing the autonomous navigation as well as the processing of odom data directly from the `pick_objects` custom `ROS` node. 
+
+![image](https://user-images.githubusercontent.com/19736497/210183319-05e8c164-37f0-49e7-a7d4-5469d0b68a1b.png)
+
+![image](https://user-images.githubusercontent.com/19736497/210183331-a2026acd-b744-43d2-9b38-6838b57970ab.png)
+
+![image](https://user-images.githubusercontent.com/19736497/210183346-4ff5b14b-d61a-4a0d-aef0-72f41247536a.png)
 
