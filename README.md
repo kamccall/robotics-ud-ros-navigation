@@ -40,7 +40,11 @@ the final (independent) task was to put a geometric object on the `rviz` map to 
 
 below are several successive images that show the markers appearing at first the pickup zone, then the drop off zone. 
 
-INSERT
+![image](https://user-images.githubusercontent.com/19736497/210182956-82426915-63e6-4c7a-a934-6fa0d1268d1f.png)
+
+![image](https://user-images.githubusercontent.com/19736497/210182974-0b0cc527-88f9-4a3c-b999-1c74fd43e369.png)
+
+![image](https://user-images.githubusercontent.com/19736497/210182986-d0613a74-6985-4942-9fe8-4077abc3ea28.png)
 
 ## part 5: simulating autonomous home service robot
 
