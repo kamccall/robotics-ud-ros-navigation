@@ -53,7 +53,7 @@ below are several successive images that show the markers appearing at first the
 ![image](https://user-images.githubusercontent.com/19736497/210182986-d0613a74-6985-4942-9fe8-4077abc3ea28.png)
 
 ## part 5: simulating autonomous home service robot
-lots of important text here
+the last part brings all of the prior `ROS` services and tools together, and simulates a home services robot. the `home_service.sh` script presents the turtlebot in the custom `gazebo` world, and uses the `AMCL` package, displays progress in `rviz` with a custom config file (that turns on the `Marker` in the UI), and runs both `pick_objects` and `add_markers` custom `ROS` nodes.  when executing the `add_markers` node, it passes the `:=mark_from_odom` setting from the `xterm` command line in the script, so that it leverages the `process_odom_data` callback function in the `add_markers.cpp` file which subscribes to `odom` data to show the real time location of the turtlebot in `rviz`. 
 
 below are several successive images showing the autonomous navigation as well as the processing of odom data directly from the `pick_objects` custom `ROS` node. 
 
