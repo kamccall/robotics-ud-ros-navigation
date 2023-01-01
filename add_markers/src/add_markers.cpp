@@ -18,8 +18,8 @@ enum ROBOT_STATE
   E_DONE
 };
 
-int const NUM_MARKERS    = 2;                                // code can be adapted to arbitrary number of markers
-int const WAIT_TIME      = 5;                                // modify time for screen captures!
+int const NUM_MARKERS     = 2;                               // code can be adapted to arbitrary number of markers
+int const WAIT_TIME       = 5;                               // modify time for screen captures!
 double const DISTANCE_EPS = 0.2;                             
 float const START_LOC[2]            = { -8.3, 0.5 };         // start location for robot in map
 float const MARKERS[NUM_MARKERS][3] = {{ -8.3, 4.5, 1.0 },   // 0 index item pickup zone
