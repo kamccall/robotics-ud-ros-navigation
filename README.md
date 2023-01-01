@@ -29,9 +29,11 @@ this focused on defining a list of locations to which the robot would autonomous
 
 the `pick_objects.sh` script launches `turtlebot`, `AMCL` and `rviz` as usual, but also runs the custom `pick_objects` `ROS` node as well, using those aforementioned coordinates to localize the robot in the exact same location in the respective `gazebo` and `rviz` views. 
 
-below are several successive images of the robot navigating from the initial point to a (single) waypoint due west in the map, and then to the destination point due north.  
+below are successive images at the beginning and end of the robot navigating from the initial point to a (single) waypoint due west in the map, and then to the destination point due north.  
 
+![image](https://user-images.githubusercontent.com/19736497/210182173-39284aa9-d7c0-4c56-866f-e69ad83a0f96.png)
 
+![image](https://user-images.githubusercontent.com/19736497/210182181-e67532b8-267c-4157-b9a7-599dae4f2065.png)
 
 ## part 4: displaying markers on environment map
 the final (independent) task was to put a geometric object on the `rviz` map to mark locations to show the robot's path.  i published a (cylindrical) marker in the map that represented the first waypoint (the 'pick up' zone, per the project instructions), displayed it for 5 seconds, then published another cylinder (in the color green, representing the 'drop off' zone) to be displayed for 5 seconds.  the second marker is then removed from the map, and the marker test concludes.  
