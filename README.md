@@ -18,9 +18,12 @@ below are images of the `turtlebot` running in that environment after executing 
 
 ![image](https://user-images.githubusercontent.com/19736497/210157539-512741a2-8929-4fc5-9561-ebb7a7a692e4.png)![image](https://user-images.githubusercontent.com/19736497/210157635-d94168ae-7664-4078-acc1-e269b9f3a3c6.png)
 
+
 ![image](https://user-images.githubusercontent.com/19736497/210157566-1b95a6c5-cc8b-4e75-8b78-f000a335ed25.png)![image](https://user-images.githubusercontent.com/19736497/210157638-5be6dda4-616c-4f82-b543-b2479184adc2.png)
 
+
 ![image](https://user-images.githubusercontent.com/19736497/210157575-956f60a1-5eb1-4e67-ba6d-4bb5ac080806.png)![image](https://user-images.githubusercontent.com/19736497/210157645-7a43e338-8f2d-4744-b4dc-da6212c8ceff.png)
+
 
 ![image](https://user-images.githubusercontent.com/19736497/210157583-ecda317e-662c-45d7-82a7-1365c600406e.png)![image](https://user-images.githubusercontent.com/19736497/210157648-13533e40-4ddb-46b6-b9e6-bfbcbc5ee19c.png)
 
@@ -33,6 +36,7 @@ below are successive images at the beginning and end of the robot navigating fro
 
 ![image](https://user-images.githubusercontent.com/19736497/210182173-39284aa9-d7c0-4c56-866f-e69ad83a0f96.png)
 
+
 ![image](https://user-images.githubusercontent.com/19736497/210182181-e67532b8-267c-4157-b9a7-599dae4f2065.png)
 
 ## part 4: displaying markers on environment map
@@ -42,7 +46,9 @@ below are several successive images that show the markers appearing at first the
 
 ![image](https://user-images.githubusercontent.com/19736497/210182956-82426915-63e6-4c7a-a934-6fa0d1268d1f.png)
 
+
 ![image](https://user-images.githubusercontent.com/19736497/210182974-0b0cc527-88f9-4a3c-b999-1c74fd43e369.png)
+
 
 ![image](https://user-images.githubusercontent.com/19736497/210182986-d0613a74-6985-4942-9fe8-4077abc3ea28.png)
 
@@ -53,7 +59,9 @@ below are several successive images showing the autonomous navigation as well as
 
 ![image](https://user-images.githubusercontent.com/19736497/210183319-05e8c164-37f0-49e7-a7d4-5469d0b68a1b.png)
 
+
 ![image](https://user-images.githubusercontent.com/19736497/210183331-a2026acd-b744-43d2-9b38-6838b57970ab.png)
+
 
 ![image](https://user-images.githubusercontent.com/19736497/210183346-4ff5b14b-d61a-4a0d-aef0-72f41247536a.png)
 
