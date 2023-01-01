@@ -39,6 +39,6 @@ git config --global user.email kevin@kevinmccall.net
 #need to run these AFTER setting up env (so that catkin_make works)
 cd ~/catkin_ws/src/robotics-ud-ros-navigation
 rm -rf pick_objects
-rm -rf add_markers
+rm -rf add_markers 
 cd ~/catkin_ws
 catkin_make

@@ -19,7 +19,7 @@ enum ROBOT_STATE
 };
 
 int const NUM_MARKERS    = 2;                                // code can be adapted to arbitrary number of markers
-int const WAIT_TIME      = 6;                                // provide time for screen captures!
+int const WAIT_TIME      = 5;                                // modify time for screen captures!
 double const DISTANCE_EPS = 0.2;                             
 float const START_LOC[2]            = { -8.3, 0.5 };         // start location for robot in map
 float const MARKERS[NUM_MARKERS][3] = {{ -8.3, 4.5, 1.0 },   // 0 index item pickup zone
@@ -55,8 +55,8 @@ void process_odom_data(const nav_msgs::Odometry::ConstPtr &msg)
     {
       cout << " --> picking up item\n";
       sleep(WAIT_TIME);
-      marker.action = visualization_msgs::Marker::DELETE; // delete blue marker at pickup zone
-      marker_pub.publish(marker);
+      marker.action = visualization_msgs::Marker::DELETE; 
+      marker_pub.publish(marker);                        // delete blue marker at pickup zone
       robot_state = C_DROPOFF_MOVING;
       break;
     }
@@ -78,8 +78,8 @@ void process_odom_data(const nav_msgs::Odometry::ConstPtr &msg)
       marker.pose.orientation.w = MARKERS[1][2];
       marker.color.g = 1.0f;                            // dropoff location marker is green
       marker.color.b = 0.0f;
-      marker.action = visualization_msgs::Marker::ADD;  // add green marker at dropoff zone
-      marker_pub.publish(marker);
+      marker.action = visualization_msgs::Marker::ADD;  
+      marker_pub.publish(marker);                       // add green marker at dropoff zone
       
       sleep(WAIT_TIME);  
       robot_state = E_DONE;
@@ -103,6 +103,7 @@ int main(int argc, char** argv)
   nh.getParam("param", mode_param);
   marker_pub = nh.advertise<visualization_msgs::Marker>("/visualization_marker", 1);
 
+  // determine mark_auto mode (in add_marker.sh) or mark_from_odom (in home_service.sh)
   if(mode_param.compare("mark_from_odom") == 0)
   {
     robot_mode = MARK_FROM_ODOM;
@@ -113,7 +114,8 @@ int main(int argc, char** argv)
     robot_mode = MARK_AUTO;
     cout << "MARK_AUTO mode enabled...\n";
   }
-  
+ 
+  // output state and set pickup location attributes independent of mode 
   robot_state = A_PICKUP_MOVING;
   cout << "MARKERS INITIALIZED...\n";
   sleep(WAIT_TIME);
@@ -142,7 +144,7 @@ int main(int argc, char** argv)
   marker.color.g = 0.0f;
   marker.color.b = 1.0f;                           // pickup location marker is blue
   marker.color.a = 1.0;
-  marker.lifetime = ros::Duration(); // KM do i need this?
+  marker.lifetime = ros::Duration();              
   
   marker.action = visualization_msgs::Marker::ADD; // add blue marker at pickup zone
   marker_pub.publish(marker);
@@ -156,16 +158,15 @@ int main(int argc, char** argv)
 
     while(ros::ok())
     {
-      ros::spinOnce();
+      ros::spinOnce();  // ros.shutdown() will come from process_odom_data callback function
     }
-    sleep(WAIT_TIME);
   }
   else                              // auto-marking both pickup and dropoff zones
   {
     sleep(WAIT_TIME);  
   
-    marker.action = visualization_msgs::Marker::DELETE; // delete blue marker at pickup zone
-    marker_pub.publish(marker);
+    marker.action = visualization_msgs::Marker::DELETE; 
+    marker_pub.publish(marker);                         // delete blue marker at pickup zone
     cout << "deleting pickup zone marker...\n";
     sleep(WAIT_TIME);
   
@@ -173,16 +174,16 @@ int main(int argc, char** argv)
     marker.pose.position.x = MARKERS[1][0];
     marker.pose.position.y = MARKERS[1][1];
     marker.pose.orientation.w = MARKERS[1][2];
-    marker.color.g = 1.0f;  // dropoff location marker is green
+    marker.color.g = 1.0f;                              // dropoff location marker is green
     marker.color.b = 0.0f;
 
-    marker.action = visualization_msgs::Marker::ADD;    // add green marker at dropoff zone
-    marker_pub.publish(marker);
+    marker.action = visualization_msgs::Marker::ADD; 
+    marker_pub.publish(marker);                         // add green marker at dropoff zone
     cout << "adding dropoff zone marker...\n";
     sleep(WAIT_TIME);  
   
-    marker.action = visualization_msgs::Marker::DELETE; // delete green marker at dropoff zone
-    marker_pub.publish(marker);
+    marker.action = visualization_msgs::Marker::DELETE; 
+    marker_pub.publish(marker);                         // delete green marker at dropoff zone
     cout << "deleting dropoff zone marker...\n";
     sleep(WAIT_TIME);
 

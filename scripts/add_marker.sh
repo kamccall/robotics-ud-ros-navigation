@@ -4,5 +4,5 @@ sleep 5
 xterm -e "cd ~/catkin_ws; source devel/setup.bash; export TURTLEBOT_GAZEBO_MAP_FILE="~/catkin_ws/src/map/enso.yaml"; roslaunch turtlebot_gazebo amcl_demo.launch" &
 sleep 5
 xterm -e "cd ~/catkin_ws; source devel/setup.bash; roslaunch turtlebot_rviz_launchers view_navigation.launch" &
-sleep 10 # provides time to orient windows and output terminals for observation
-xterm -e "cd ~/catkin_ws; source devel/setup.bash; rosrun pick_objects pick_objects"
+sleep 5
+xterm -e "cd ~/catkin_ws; source devel/setup.bash; rosrun add_markers add_markers _param:=mark_auto"
