@@ -161,7 +161,7 @@ int main(int argc, char** argv)
       ros::spinOnce();  // ros.shutdown() will come from process_odom_data callback function
     }
   }
-  else                              // auto-marking both pickup and dropoff zones
+  else                  // auto-marking both pickup and dropoff zones
   {
     sleep(WAIT_TIME);  
   
